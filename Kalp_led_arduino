@@ -1,1 +1,54 @@
 
+int basla = 2;     // İlk LED pini
+int bitis = 10;    // Son LED pini
+
+void setup() {
+  for (int i = basla; i <= bitis; i++) {
+    pinMode(i, OUTPUT);
+  }
+}
+
+void loop() {
+
+  // 1) LED'leri sırayla yak
+  for (int i = basla; i <= bitis; i++) {
+    digitalWrite(i, HIGH);
+    delay(100);
+  }
+  digitalWriteAll(LOW);
+  // 1) LED'leri sırayla yak
+  for (int i = bitis; i > basla; i--) {
+    digitalWrite(i, HIGH);
+    delay(100);
+  }
+
+  // 2) Hepsi yanıp sönsün (0.5 sn ara)
+  // Bir kez blink yapacak istersen artırabilirim
+
+ digitalWriteAll(HIGH);
+  delay(500);
+    digitalWriteAll(LOW);
+  delay(200);
+    digitalWriteAll(HIGH);
+  delay(500);
+  digitalWriteAll(LOW);
+  delay(200);
+ digitalWriteAll(HIGH);
+  delay(500);
+    digitalWriteAll(LOW);
+  delay(200);
+   digitalWriteAll(HIGH);
+  delay(500);
+    digitalWriteAll(LOW);
+  delay(200);
+  // Döngü başa
+  // Döngü başa döner
+}
+
+// ----------------------------------
+// Yardımcı fonksiyon: tüm LED'leri kontrol eder
+void digitalWriteAll(int durum) {
+  for (int i = basla; i <= bitis; i++) {
+    digitalWrite(i, durum);
+  }
+}
