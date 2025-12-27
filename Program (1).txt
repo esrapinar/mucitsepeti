@@ -1,0 +1,60 @@
+' Ekran Ayarları
+GraphicsWindow.BackgroundColor = "Black"
+
+
+hiz = 100 ' Çizim hızı
+
+' 1. GÖVDE
+GraphicsWindow.BrushColor = "Brown"
+GraphicsWindow.FillRectangle(280, 420, 40, 60)
+Program.Delay(hiz * 5)
+
+' 2. AĞACIN KATMANLARI
+GraphicsWindow.BrushColor = "DarkGreen"
+' Alt Katman
+GraphicsWindow.FillTriangle(150, 420, 450, 420, 300, 250)
+Program.Delay(hiz * 5)
+' Orta Katman
+GraphicsWindow.FillTriangle(180, 320, 420, 320, 300, 150)
+Program.Delay(hiz * 5)
+' Üst Katman
+GraphicsWindow.FillTriangle(220, 200, 380, 200, 300, 80)
+Program.Delay(hiz * 5)
+
+' 3. DÜZENLİ SÜSLER (Katman katman yerleştirme)
+' Alt Katman Süsleri
+For i = 1 To 10
+  GraphicsWindow.BrushColor = GraphicsWindow.GetRandomColor()
+  x = 180 + (i * 22)
+  y = 380 - (Math.GetRandomNumber(40))
+  GraphicsWindow.FillEllipse(x, y, 12, 12)
+  Program.Delay(hiz)
+EndFor
+
+' Orta Katman Süsleri
+For i = 1 To 8
+  GraphicsWindow.BrushColor = GraphicsWindow.GetRandomColor()
+  x = 210 + (i * 20)
+  y = 280 - (Math.GetRandomNumber(40))
+  GraphicsWindow.FillEllipse(x, y, 12, 12)
+  Program.Delay(hiz)
+EndFor
+
+' Üst Katman Süsleri
+For i = 1 To 5
+  GraphicsWindow.BrushColor = GraphicsWindow.GetRandomColor()
+  x = 245 + (i * 18)
+  y = 170 - (Math.GetRandomNumber(30))
+  GraphicsWindow.FillEllipse(x, y, 12, 12)
+  Program.Delay(hiz)
+EndFor
+
+' 4. TEPEDEKİ YILDIZ
+GraphicsWindow.BrushColor = "Yellow"
+GraphicsWindow.FontSize = 45
+GraphicsWindow.DrawText(278, 45, "★")
+
+' 5. ALT YAZI
+GraphicsWindow.BrushColor = "White"
+GraphicsWindow.FontSize = 30
+GraphicsWindow.DrawText(210, 500, "Mutlu Yıllar!")
